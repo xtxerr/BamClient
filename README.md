@@ -10,7 +10,7 @@ The current implementation targets the following operational domains:
 
 - **DNS management** (e.g., A/AAAA/CNAME/MX/NS/TXT record operations in a DNS view and zone)
 - **Reverse mappings** for A/AAAA records (configurable behavior)
-- **Network object lifecycle** (list/create/delete networks within a defined set of permissible parent blocks)
+- **Simple Network object modifications** (list/create/delete networks within a defined set of permissible parent blocks)
 
 ## Installation
 

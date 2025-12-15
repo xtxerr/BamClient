@@ -2,7 +2,7 @@
 
 ## Abstract
 
-**BamClient** is a command-line interface (CLI) and Python library that provides a pragmatic integration layer for the **BlueCat Address Manager (BAM) RESTful v2 API**, with a focus on **DNS resource records** and **network objects**. The project is designed for automation-centric workflows (shell usage, CI jobs, and Python-based orchestration) while maintaining a clear separation between configuration, transport, and domain logic.
+**BamClient** is a command-line interface (CLI) and Python library that provides an integration layer for the **BlueCat Address Manager (BAM) RESTful v2 API**, with a focus on **DNS resource records** and **network objects**. The project is designed for automation-centric workflows (shell usage, CI jobs, and Python-based orchestration) while maintaining a clear separation between configuration, transport, and domain logic.
 
 ## Scope and Capabilities
 
@@ -20,8 +20,8 @@ pip install .
 
 (Optionally, use an editable install during development: pip install -e ..)
 
-Command-Line Interface
-Synopsis
+# Command-Line Interface Synopsis
+
 $ BamClient --help
 usage: BamClient [-h] [--host HOST] [--user USER] [--password PASSWORD]
                  [--config CONFIG] [--view VIEW] [--insecure] [--debug]
@@ -46,7 +46,7 @@ optional arguments:
   --insecure            Disable TLS certificate verification
   --debug               Enable verbose HTTP debugging
 
-add subcommand
+## add subcommand
 $ BamClient add --help
 usage: BamClient add [-h] (--zone ZONE | --network NETWORK) [--name NAME]
                      [--type {A,AAAA,CNAME,MX,NS,TXT}]
@@ -94,24 +94,17 @@ with BamClientApi(settings) as api:
 The CLI and Python settings loader support the following environment variables:
 
 BAM_HOST — BAM base URL / hostname
-
 BAM_USER — BAM API username
-
 BAM_PASSWORD — BAM API password
-
 BAM_CONFIG — BAM configuration name
-
 BAM_VIEW — BAM DNS view name
-
 BAM_CHANGE_COMMENT — change-comment metadata (if supported/used by the server-side workflow)
-
-BAM_VERIFY_TLS=true|false — TLS certificate verification policy
+BAM_VERIFY_TLS=true|false — TLS certificate validation
 
 # Network parent-block selection (BAM_BLOCKS)
 
 For network creation via add --network, a parent block must be determinable. This is expressed as a whitespace-separated list of candidate CIDRs:
 
 export BAM_BLOCKS="192.0.0.0/8 212.0.0.0/8 2a02:1234::/32"
-
 
 Semantics: when --network <CIDR> is provided, the tool selects the most appropriate parent from BAM_BLOCKS (i.e., the block that contains the requested CIDR) and uses it as the parent object for creation. Consequently, BAM_BLOCKS must be defined for --network creation workflows.

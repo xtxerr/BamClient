@@ -38,7 +38,7 @@ class BlueCatV2Client:
         self.session.headers.update({"Accept": "application/hal+json"})
 
         self._basic_auth_header: Optional[str] = None
-        self.change_comment = change_comment or "change by BamClien"
+        self.change_comment = change_comment or "change by BamClient"
 
     # ---------------- HTTP ----------------
 

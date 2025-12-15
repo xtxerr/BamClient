@@ -21,7 +21,7 @@ pip install .
 
 (Optionally, use an editable install during development: pip install -e ..)
 
-# Command-Line Interface Synopsis
+## Command-Line Interface Synopsis
 ```
 $ BamClient --help
 usage: BamClient [-h] [--host HOST] [--user USER] [--password PASSWORD]
@@ -48,7 +48,7 @@ optional arguments:
   --debug               Enable verbose HTTP debugging
 ```
 
-## add subcommand
+### add subcommand
 ```
 $ BamClient add --help
 usage: BamClient add [-h] (--zone ZONE | --network NETWORK) [--name NAME]
@@ -68,7 +68,7 @@ optional arguments:
                         For A/AAAA: control reverseRecord (default: true)
 ```
 
-# delete subcommand
+### delete subcommand
 ```
 $ /BamClient delete --help
 usage: BamClient delete [-h] (--id ID | --network NETWORK | --zone ZONE) [--name NAME] [--type {A,AAAA,CNAME,MX,NS,TXT}]
@@ -82,7 +82,7 @@ optional arguments:
   --type {A,AAAA,CNAME,MX,NS,TXT}, -t {A,AAAA,CNAME,MX,NS,TXT}
 ```
 
-# update subcommand
+### update subcommand
 ```
 $ BamClient update --help
 usage: BamClient update [-h] [--id ID] [--zone ZONE] [--name NAME] [--type {A,AAAA,CNAME,MX,NS,TXT}] [--ttl TTL] [--data DATA] [--with-reverse [WITH_REVERSE]]
@@ -98,7 +98,7 @@ optional arguments:
   --with-reverse [WITH_REVERSE]
 ```
 
-# list subcommand
+### list subcommand
 ```
 $ BamClient list --help
 usage: BamClient list [-h] (--zone ZONE | --cidr CIDR | --network NETWORK) [--type {A,AAAA,CNAME,MX,NS,TXT}]
@@ -112,20 +112,20 @@ optional arguments:
 ```
 
 
-# Network operations
+### Network operations
 ```
 $ BamClient list   --network 192.168.0.0/24
 $ BamClient add    --network 2a02:1234:0:9998::/64
 $ BamClient delete --network 2a02:1234:0:9998::/64
 ```
 
-# DNS record listing and creation
+### DNS record listing and creation
 ```
 $ BamClient list --zone example.com -t A -t AAAA
 $ BamClient add  --zone example.com --name foo --type A --data 192.0.2.10
 ```
 
-# Python API
+## Python API
 ```
 from BamClient import BamSettings, BamClientA
 settings = BamSettings.from_env()
@@ -141,7 +141,7 @@ with BamClientApi(settings) as api:
     print(len(recs))
 ```
 
-# Configuration via Environment Variables
+## Configuration via Environment Variables
 
 The CLI and Python settings loader support the following environment variables:
 ```
@@ -154,7 +154,7 @@ BAM_CHANGE_COMMENT — change-comment metadata (if supported/used by the server-
 BAM_VERIFY_TLS=true|false — TLS certificate validation
 ```
 
-# Network parent-block selection (BAM_BLOCKS)
+## Network parent-block selection (BAM_BLOCKS)
 
 For network creation via add --network, a parent block must be determinable. This is expressed as a whitespace-separated list of candidate CIDRs:
 ```

@@ -2,7 +2,7 @@
 
 ## Abstract
 
-**BamClient** is a command-line interface (CLI) and Python library that provides an integration layer for the **BlueCat Address Manager (BAM) RESTful v2 API**, with a focus on **DNS resource records** and **network objects**. The project is designed for automation-centric workflows (shell usage, CI jobs, and Python-based orchestration) while maintaining a clear separation between configuration, transport, and domain logic.
+**BamClient** is a command-line interface (CLI) and Python library that provides a simple integration layer for the **BlueCat Address Manager (BAM) RESTful v2 API**, with a focus on very simple **DNS resource records** and **network objects** management. The project is aimed for shell, CI job, and Python-based usage with a clear separation between configuration, transport, and domain logic.
 
 ## Scope and Capabilities
 

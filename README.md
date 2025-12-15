@@ -127,7 +127,7 @@ $ BamClient add  --zone example.com --name foo --type A --data 192.0.2.10
 
 ## Python API
 ```
-from BamClient import BamSettings, BamClientA
+from BamClient import BamSettings, BamClientApi
 settings = BamSettings.from_env()
 
 with BamClientApi(settings) as api:
@@ -158,6 +158,6 @@ BAM_VERIFY_TLS=true|false — TLS certificate validation
 
 For network creation via add --network, a parent block must be determinable. This is expressed as a whitespace-separated list of candidate CIDRs:
 ```
-export BAM_BLOCKS="192.0.0.0/8 212.0.0.0/8 2a02:1234::/32
+export BAM_BLOCKS="192.0.0.0/8 212.0.0.0/8 2a02:1234::/32"
 ```
 Semantics: when --network <CIDR> is provided, the tool selects the most appropriate parent from BAM_BLOCKS (i.e., the block that contains the requested CIDR) and uses it as the parent object for creation. Consequently, BAM_BLOCKS must be defined for --network creation workflows.

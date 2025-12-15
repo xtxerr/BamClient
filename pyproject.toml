@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "BamClient"
+version = "0.1.0"
+description = "BlueCat Address Manager REST v2 DNS/Network helper (CLI + Python API)"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["requests>=2.28"]
+
+[project.scripts]
+BamClient = "BamClient.cli:main"
+

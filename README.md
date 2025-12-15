@@ -75,8 +75,8 @@ $ BamClient list --zone example.com -t A -t AAAA
 $ BamClient add  --zone example.com --name foo --type A --data 192.0.2.10
 
 # Python API
-from BamClient import BamSettings, BamClientApi
-
+```
+from BamClient import BamSettings, BamClientA
 settings = BamSettings.from_env()
 
 with BamClientApi(settings) as api:
@@ -88,8 +88,7 @@ with BamClientApi(settings) as api:
 
     recs = api.dns.list_zone("example.com", types=["A", "AAAA"])
     print(len(recs))
-
-# Configuration via Environment Variables
+``` Configuration via Environment Variables
 
 The CLI and Python settings loader support the following environment variables:
 
